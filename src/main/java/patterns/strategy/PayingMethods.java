@@ -6,4 +6,8 @@ public class PayingMethods {
     public void setPayingStrategy(PayingStrategy payingStrategy){
         this.payingStrategy = payingStrategy;
     }
+
+    public void doPay(){
+        payingStrategy.pay();
+    }
 }

@@ -1,136 +1,125 @@
 package patterns.builder;
 
-import patterns.pageObjects.pages.RegisterPage;
+import patterns.pageObject.pages.ShippingAddressPage;
 
 public class SignUpBuilder {
-    private String emailAddress;
-    private String firstName;
-    private String lastName;
-    private String password;
-    private int dayOfBirthday;
-    private String monthOfBirthday;
-    private int yearOfBirthday;
-    private String interestedOption;
-    private String contactPreferences;
+
+    private String fullName;
+    private String firstAddress;
+    private String secondAddress;
+    private String city;
+    private String region;
+    private String zipCode;
+    private String country;
+    private String phoneNumber;
 
     private SignUpBuilder(SignUp signUp, boolean generatedPersonalFields) {
-        emailAddress = signUp.emailAddress;
-        firstName =signUp.firstName;
-        lastName = signUp.lastName;
-        password = signUp.password;
-        dayOfBirthday = signUp.dayOfBirthday;
-        monthOfBirthday = signUp.monthOfBirthday;
-        yearOfBirthday = signUp.yearOfBirthday;
-        interestedOption = signUp.interestedOption;
-        contactPreferences = signUp.contactPreferences;
+        fullName = signUp.fullName;
+        firstAddress = signUp.firstAddress;
+        secondAddress = signUp.secondAddress;
+        city = signUp.city;
+        region = signUp.region;
+        zipCode = signUp.zipCode;
+        country = signUp.country;
+        phoneNumber = signUp.phoneNumber;
     }
 
-    public static SignUp newSignUp(){
+    public static SignUp newSignUp() {
         return new SignUp();
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getFullName() {
+        return fullName;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstAddress() {
+        return firstAddress;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSecondAddress() {
+        return secondAddress;
     }
 
-    public String getPassword() {
-        return password;
+    public String getCity() {
+        return city;
     }
 
-    public int getDayOfBirthday() {
-        return dayOfBirthday;
+    public String getRegion() {
+        return region;
     }
 
-    public String getMonthOfBirthday() {
-        return monthOfBirthday;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public int getYearOfBirthday() {
-        return yearOfBirthday;
+    public String getCountry() {
+        return country;
     }
 
-    public String getInterestedOption() {
-        return interestedOption;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public String getContactPreferences() {
-        return contactPreferences;
-    }
+    public static final class SignUp {
+        private String fullName;
+        private String firstAddress;
+        private String secondAddress;
+        private String city;
+        private String region;
+        private String zipCode;
+        private String country;
+        private String phoneNumber;
 
-    public static final class SignUp{
-        private String emailAddress;
-        private String firstName;
-        private String lastName;
-        private String password;
-        private int dayOfBirthday;
-        private String monthOfBirthday;
-        private int yearOfBirthday;
-        private String interestedOption;
-        private String contactPreferences;
-
-        public SignUp(){
+        public SignUp() {
 
         }
 
-        public SignUp setEmailAddress(String value) {
-            emailAddress = value;
+        public SignUp setFullName(String value) {
+            fullName = value;
             return this;
         }
 
-        public SignUp setFirstName(String value) {
-            firstName = value;
+        public SignUp setFirstAddress(String value) {
+            firstAddress = value;
             return this;
         }
 
-        public SignUp setLastName(String value) {
-            lastName = value;
+        public SignUp setSecondAddress(String value) {
+            secondAddress = value;
             return this;
         }
 
-        public SignUp setPassword(String value) {
-            password = value;
+        public SignUp setCity(String value) {
+            city = value;
             return this;
         }
 
-        public SignUp setDayOfBirthday(int value) {
-            dayOfBirthday = value;
+        public SignUp setRegion(String value) {
+            region = value;
             return this;
         }
 
-        public SignUp setMonthOfBirthday(String value) {
-            monthOfBirthday = value;
+        public SignUp setZipCode(String value) {
+            zipCode = value;
             return this;
         }
 
-        public SignUp setYearOfBirthday(int value) {
-            yearOfBirthday = value;
+        public SignUp setCountry(String value) {
+            country = value;
             return this;
         }
 
-        public SignUp setInterestedOption(String value) {
-            interestedOption = value;
+        public SignUp setPhoneNumber(String value) {
+            phoneNumber = value;
             return this;
         }
 
-        public SignUp setContactPreferences(String value) {
-            contactPreferences = value;
-            return this;
-        }
-
-        public SignUpBuilder build(){
-            return new SignUpBuilder(this,true);
+        public SignUpBuilder build() {
+            return new SignUpBuilder(this, true);
         }
     }
 
-    public void createAccount(RegisterPage registerPage){
-        registerPage.createNewUserPage(this);
+    public void createAccount(ShippingAddressPage shippingAddressPage) {
+        shippingAddressPage.createNewUserPage(this);
     }
 }
